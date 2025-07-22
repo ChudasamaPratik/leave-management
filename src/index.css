@@ -1,0 +1,202 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  /* General Card/Container Styles */
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200 transition-colors duration-200;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 bg-red-500 text-white font-medium rounded-lg hover:bg-red-600 transition-colors duration-200;
+  }
+
+  .btn-primary-sm {
+    @apply inline-flex items-center justify-center p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200;
+  }
+
+  .icon-btn {
+    @apply p-1 text-gray-500 hover:text-blue-600 transition-colors duration-200;
+  }
+
+  /* Navigation Buttons (Calendar) */
+  .nav-btn {
+    @apply p-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors duration-200;
+  }
+
+  /* Calendar Grid */
+  .calendar-grid {
+    @apply grid grid-cols-7 gap-2;
+  }
+
+  .calendar-day {
+    @apply relative p-2 min-h-[80px] border border-gray-100 rounded-lg cursor-pointer transition-all duration-200 flex flex-col items-center justify-start;
+  }
+
+  .calendar-day:hover {
+    @apply bg-gray-50;
+  }
+
+  .calendar-day.today {
+    @apply bg-blue-50 border-blue-200;
+  }
+
+  .calendar-day.selected {
+    @apply bg-blue-100 border-blue-300;
+  }
+
+  .calendar-day.has-leave {
+    @apply bg-red-50 border-red-200;
+  }
+
+  .calendar-day.has-holiday {
+    @apply bg-purple-50 border-purple-200;
+  }
+
+  .calendar-day.selected.has-leave {
+    @apply bg-red-100;
+  }
+
+  .calendar-day.empty {
+    @apply bg-transparent border-transparent cursor-default;
+  }
+
+  .calendar-day.empty:hover {
+    @apply bg-transparent transform-none;
+  }
+
+  .calendar-day.weekend {
+    @apply bg-gray-50;
+  }
+
+  .day-number {
+    @apply text-sm font-medium;
+  }
+
+  .leave-indicator {
+    @apply absolute top-1 right-1 text-xs px-1 py-0.5 rounded text-white;
+  }
+
+  .leave-indicator.casual {
+    @apply bg-blue-500;
+  }
+
+  .leave-indicator.extra {
+    @apply bg-green-500;
+  }
+
+  .leave-indicator.paid {
+    @apply bg-purple-500;
+  }
+
+  .holiday-indicator {
+    @apply absolute bottom-1 left-1 text-xs bg-red-500 text-white px-1 py-0.5 rounded;
+  }
+
+  .note-dot, .extra-day-dot, .casual-leave-dot {
+    @apply absolute bottom-1 right-1 w-2 h-2 rounded-full;
+  }
+
+  .note-dot {
+    @apply bg-gray-500;
+  }
+
+  .extra-day-dot {
+    @apply bg-green-500;
+  }
+
+  .casual-leave-dot {
+    @apply bg-blue-500;
+  }
+
+  /* Event Cards in Sidebar */
+  .event-card {
+    @apply bg-gray-50 rounded-lg p-4 border border-gray-100;
+  }
+
+  .event-card.leave {
+    @apply bg-red-50 border-red-200;
+  }
+
+  .event-card.note {
+    @apply bg-blue-50 border-blue-200;
+  }
+
+  .event-card.extraDay {
+    @apply bg-green-50 border-green-200;
+  }
+
+  .event-card.addCasualLeave {
+    @apply bg-blue-50 border-blue-200;
+  }
+
+  .event-icon {
+    @apply p-1 rounded;
+  }
+
+  .event-icon.leave {
+    @apply bg-red-100 text-red-600;
+  }
+
+  .event-icon.note {
+    @apply bg-blue-100 text-blue-600;
+  }
+
+  .event-icon.extraDay {
+    @apply bg-green-100 text-green-600;
+  }
+
+  .event-icon.addCasualLeave {
+    @apply bg-blue-100 text-blue-600;
+  }
+
+  .event-badge {
+    @apply text-xs px-2 py-1 rounded-full;
+  }
+
+  .event-badge.leave {
+    @apply bg-red-100 text-red-700;
+  }
+
+  .event-badge.note {
+    @apply bg-blue-100 text-blue-700;
+  }
+
+  .event-badge.extraDay {
+    @apply bg-green-100 text-green-700;
+  }
+
+  .event-badge.addCasualLeave {
+    @apply bg-blue-100 text-blue-700;
+  }
+
+  .event-badge.holiday {
+    @apply bg-purple-100 text-purple-700;
+  }
+}

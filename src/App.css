@@ -1,0 +1,363 @@
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    background: #3b82f6;
+    color: white;
+    font-weight: 500;
+    border-radius: 0.75rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+  }
+
+  .btn-primary:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    background: white;
+    color: #6b7280;
+    font-weight: 500;
+    border: 1px solid #d1d5db;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+  }
+
+  .btn-secondary:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+  }
+
+  .btn-success {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    background: #10b981;
+    color: white;
+    font-weight: 500;
+    border-radius: 0.75rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+  }
+
+  .btn-success:hover {
+    background: #059669;
+    transform: translateY(-1px);
+  }
+
+  .btn-danger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    background: #ef4444;
+    color: white;
+    font-weight: 500;
+    border-radius: 0.75rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.875rem;
+  }
+
+  .btn-danger:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+  }
+
+  .btn-primary-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    background: #3b82f6;
+    color: white;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-primary-sm:hover {
+    background: #2563eb;
+  }
+
+  .nav-btn {
+    padding: 0.75rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #6b7280;
+  }
+
+  .nav-btn:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+    color: #374151;
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+  }
+
+  .calendar-day {
+    aspect-ratio: 1;
+    background: #fafafa;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid #f3f4f6;
+    position: relative;
+  }
+
+  .calendar-day:hover {
+    background: #f3f4f6;
+    transform: translateY(-1px);
+  }
+
+  .calendar-day.today {
+    background: #dbeafe;
+    border-color: #3b82f6;
+    color: #1d4ed8;
+  }
+
+  .calendar-day.selected {
+    background: #3b82f6;
+    color: white;
+    border-color: #2563eb;
+  }
+
+  .calendar-day.has-leave {
+    background: #fef2f2;
+    border-color: #fca5a5;
+  }
+
+  .calendar-day.has-holiday {
+    background: #e0e7ff;
+    border-color: #a5b4fc;
+  }
+
+  .calendar-day.selected.has-leave {
+    background: #dc2626;
+  }
+
+  .calendar-day.empty {
+    background: transparent;
+    cursor: default;
+    border: none;
+  }
+
+  .calendar-day.empty:hover {
+    background: transparent;
+    transform: none;
+  }
+
+  .calendar-day.weekend {
+    background: #e5e7eb;
+  }
+
+  .day-number {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .leave-indicator {
+    font-size: 0.625rem;
+    font-weight: 700;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    color: white;
+    margin-bottom: 0.125rem;
+  }
+
+  .holiday-indicator {
+    font-size: 0.625rem;
+    font-weight: 700;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    color: black;
+    background: #818cf8;
+    margin-bottom: 0.125rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+
+  .leave-indicator.casual {
+    background: #3b82f6;
+  }
+
+  .leave-indicator.sick {
+    background: #ef4444;
+  }
+
+  .leave-indicator.paid {
+    background: #9333ea;
+  }
+
+  .leave-indicator.extra {
+    background: #10b981;
+  }
+
+  .note-dot {
+    width: 0.25rem;
+    height: 0.25rem;
+    background: #8b5cf6;
+    border-radius: 50%;
+    margin-top: auto;
+  }
+
+  .extra-day-dot {
+    width: 0.25rem;
+    height: 0.25rem;
+    background: #10b981;
+    border-radius: 50%;
+    margin-top: auto;
+  }
+
+  .casual-leave-dot {
+    width: 0.25rem;
+    height: 0.25rem;
+    background: #3b82f6;
+    border-radius: 50%;
+    margin-top: auto;
+  }
+
+  .event-card {
+    background: #f9fafb;
+    border: 1px solid #f3f4f6;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    transition: all 0.2s;
+  }
+
+  .event-card:hover {
+    background: #f3f4f6;
+    border-color: #e5e7eb;
+  }
+
+  .event-card.leave {
+    background: #fef2f2;
+    border-color: #fecaca;
+  }
+
+  .event-card.note {
+    background: #f0f9ff;
+    border-color: #bae6fd;
+  }
+
+  .event-card.extraDay {
+    background: #ecfdf5;
+    border-color: #a7f3d0;
+  }
+
+  .event-card.addCasualLeave {
+    background: #e0f2fe;
+    border-color: #7dd3fc;
+  }
+
+  .event-card.paidLeave {
+    background: #f3e8ff;
+    border-color: #d8b4fe;
+  }
+
+  .event-icon {
+    padding: 0.25rem;
+    border-radius: 0.375rem;
+  }
+
+  .event-icon.leave {
+    background: #fee2e2;
+    color: #dc2626;
+  }
+
+  .event-icon.note {
+    background: #dbeafe;
+    color: #2563eb;
+  }
+
+  .event-icon.extraDay {
+    background: #d1fae5;
+    color: #059669;
+  }
+
+  .event-icon.addCasualLeave {
+    background: #bfdbfe;
+    color: #3b82f6;
+  }
+
+  .event-icon.paidLeave {
+    background: #e9d5ff;
+    color: #9333ea;
+  }
+
+  .event-badge {
+    font-size: 0.625rem;
+    font-weight: 700;
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.375rem;
+    color: black;
+  }
+
+  .event-badge.leave {
+    background: #dc2626;
+  }
+
+  .event-badge.note {
+    background: #2563eb;
+  }
+
+  .event-badge.extraDay {
+    background: #059669;
+  }
+
+  .event-badge.addCasualLeave {
+    background: #3b82f6;
+  }
+
+  .event-badge.paidLeave {
+    background: #9333ea;
+  }
+
+  .event-badge.holiday {
+    background: #818cf8;
+    color: black;
+  }
+
+  .icon-btn {
+    padding: 0.25rem;
+    color: #6b7280;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .icon-btn:hover {
+    background: #f3f4f6;
+    color: #374151;
+  }
