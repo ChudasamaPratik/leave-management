@@ -25,9 +25,9 @@ header('Content-Type: application/json; charset=utf-8');
 
 // Database connection
 $host = 'localhost';
-$dbname = 'u664777408_test1';
-$username = 'u664777408_test1';
-$password = 'g[I/nfd2';
+$dbname = 'u664777408_leave_api';
+$username = 'u664777408_leave_api';
+$password = 't3vWbKQ9Z!';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
@@ -64,6 +64,9 @@ switch ($segments[0]) {
         break;
     case 'events':
         handleEvents($pdo, $method, $segments);
+        break;
+    case 'claim-events':
+        handleClaimEvents($pdo, $method);
         break;
     case 'leave-balance':
         handleLeaveBalance($pdo, $method);
@@ -106,7 +109,7 @@ function handleLogin($pdo, $method) {
             ]);
         } else {
             http_response_code(401);
-            echo json_encode(['error' => 'User not found']);
+            echo json_encode(['success' => false, 'error' => 'User not found']);
         }
     } catch(Exception $e) {
         http_response_code(500);
@@ -286,6 +289,40 @@ function handleClearData($pdo, $method) {
         $pdo->rollBack();
         http_response_code(500);
         echo json_encode(['error' => 'Failed to clear user data: ' . $e->getMessage()]);
+    }
+}
+
+function handleClaimEvents($pdo, $method) {
+    if ($method !== 'POST') {
+        http_response_code(405);
+        echo json_encode(['error' => 'Method not allowed']);
+        return;
+    }
+    
+    $input = file_get_contents('php://input');
+    $data = json_decode($input, true);
+
+    if (!isset($data['event_ids']) || !is_array($data['event_ids'])) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Event IDs are required']);
+        return;
+    }
+
+    $eventIds = $data['event_ids'];
+    if (empty($eventIds)) {
+        echo json_encode(['success' => true, 'message' => 'No events to claim.']);
+        return;
+    }
+
+    try {
+        $placeholders = implode(',', array_fill(0, count($eventIds), '?'));
+        $stmt = $pdo->prepare("UPDATE events SET is_month_claim = 1 WHERE id IN ($placeholders) AND type = 'extraDay'");
+        $stmt->execute($eventIds);
+        
+        echo json_encode(['success' => true, 'affected_rows' => $stmt->rowCount()]);
+    } catch(Exception $e) {
+        http_response_code(500);
+        echo json_encode(['error' => 'Failed to claim events: ' . $e->getMessage()]);
     }
 }
 
